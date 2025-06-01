@@ -2,12 +2,15 @@
 
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <algorithm> // pour max, min, sort
+#include <vector>
+#include <limits>
 
 class Span
 {
 	private:
-		int *array;
+		unsigned int N;
+		std::vector<int> _nbs;
 		Span();
 
 	public:
@@ -16,5 +19,7 @@ class Span
 		~Span();
 		Span &operator=(const Span &other);
 
-		void addNumber();
+		void addNumber(int toAdd);
+		unsigned int shortestSpan() const;
+		unsigned int longestSpan() const;
 };
