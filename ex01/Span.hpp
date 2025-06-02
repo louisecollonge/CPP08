@@ -6,6 +6,10 @@
 #include <vector>
 #include <limits>
 
+#define PINK	 	"\033[0;35m"
+#define BLUE		"\033[34m"
+#define RESET		"\033[0m"
+
 class Span
 {
 	private:
