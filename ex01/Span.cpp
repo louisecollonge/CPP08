@@ -22,13 +22,22 @@ Span &Span::operator=(const Span &other) {
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~ Methodes ~~~~~~~~~~~~~~~~~~~~~~~~//
 
-void Span::addNumber(int toAdd) {
+void Span::addNumber(int toAdd) 
+{
 	if (_nbs.size() >= N)
-		throw std::out_of_range("Cannot add another number: maxed out capacity");
+		throw std::out_of_range("Cannot add number: maxed out capacity");
 	_nbs.push_back(toAdd);
 }
 
-unsigned int Span::shortestSpan() const {
+void Span::addRange(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end) 
+{
+	if (_nbs.size() + std::distance(begin, end) > N)
+		throw std::out_of_range("Cannot add range: maxed out capacity"); // meme si un seul nb depasse la capacite, aucun des nombres ne sera ajoute
+	_nbs.insert(_nbs.end(), begin, end);
+}
+
+unsigned int Span::shortestSpan() const 
+{
 	if (_nbs.size() < 2)
 		throw std::out_of_range("No shortest span: not enough numbers");
 	
@@ -44,7 +53,8 @@ unsigned int Span::shortestSpan() const {
 	return span;
 }
 
-unsigned int Span::longestSpan() const {
+unsigned int Span::longestSpan() const 
+{
 	if (_nbs.size() < 2)
 		throw std::out_of_range("No longest span: not enough numbers");
 	
