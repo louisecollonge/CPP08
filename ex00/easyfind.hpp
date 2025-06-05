@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <string>
-#include <vector> // pour faire un vecteur de int dans le main
+#include <vector>
 #include <list>
 #include <deque>
 #include <algorithm> // pour std::find

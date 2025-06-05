@@ -3,7 +3,7 @@
 int main()
 {
 // Test avec addNumber manuel:
-	std::cout << BOLD << "~ First test, with addNumber:" << RESET << std::endl;
+	std::cout << BOLD << "~ First test, with addNumber ~" << RESET << std::endl;
 
 	Span sp0 = Span(10000);
 	for (int i = 0; i < 9999; ++i) {
@@ -19,20 +19,20 @@ int main()
 		std::cerr << BOLD_RED << e.what() << RESET << std::endl;
 	}
 	try {
-		sp0.addNumber(17);
+		sp0.addNumber(17); // cause exception car objet sp0 full
 	} catch (std::exception &e) {
 		std::cerr << BOLD_RED << e.what() << RESET << std::endl;
 	}
-	
+
 	std::cout << PINK << "Shortest span between numbers:\t" << sp0.shortestSpan() << RESET << std::endl;
-	std::cout << BLUE << "Largest span between numbers:\t" << sp0.longestSpan() << RESET << std::endl;
+	std::cout << BLUE << "Longest span between numbers:\t" << sp0.longestSpan() << RESET << std::endl;
 
 
 // Test avec range d'iterateurs:
-	std::cout << BOLD << "\n~ Second test, with addRange:" << RESET << std::endl;
+	std::cout << BOLD << "\n~ Second test, with addRange ~" << RESET << std::endl;
 
 	Span sp1 = Span(5);
-	std::vector<int> toAdd;
+	std::vector<int> toAdd; // vecteur dont on veut copier les elements dans sp1
 	toAdd.push_back(42);
 	toAdd.push_back(4242);
 	toAdd.push_back(424242);
@@ -42,10 +42,10 @@ int main()
 		std::cerr << BOLD_RED << e.what() << RESET << std::endl;
 	}
 
-	std::vector<int> toAddNext;
+	std::vector<int> toAddNext; // vecteur dont on veut copier les elements dans sp1
 	toAddNext.push_back(0);
 	toAddNext.push_back(1);
-	toAddNext.push_back(2); // causera exception
+	toAddNext.push_back(2); // causera exception car objet sp1 full, donc aucun element de toAddNext ne sera ajoute
 	try {
 		sp1.addRange(toAddNext.begin(), toAddNext.end());
 	} catch (std::exception &e) {
@@ -53,7 +53,7 @@ int main()
 	}
 
 	std::cout << PINK << "Shortest span between numbers:\t" << sp1.shortestSpan() << RESET << std::endl;
-	std::cout << BLUE << "Largest span between numbers:\t" << sp1.longestSpan() << RESET << std::endl;
+	std::cout << BLUE << "Longest span between numbers:\t" << sp1.longestSpan() << RESET << std::endl;
 
 	return 0;
 }

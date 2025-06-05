@@ -11,7 +11,10 @@
 #define BOLD    	"\033[1m"
 #define RESET		"\033[0m"
 
-template <typename T>
+
+
+
+template <typename T> // car herite de stack, qui est une classe template
 class MutantStack: public std::stack<T> 
 {
 	public:
@@ -20,14 +23,14 @@ class MutantStack: public std::stack<T>
 		~MutantStack();
 		MutantStack &operator=(const MutantStack &other);
 
-		typedef typename std::stack<T>::container_type::iterator		iterator;
-		typedef typename std::stack<T>::container_type::const_iterator	const_iterator;
+		typedef typename std::stack<T>::container_type::iterator		iterator;		// on cree un alias comme demande dans le main de test
+		typedef typename std::stack<T>::container_type::const_iterator	const_iterator; // alias pour un interateur constant
 
-		iterator		begin();
+		iterator		begin();		// permet d'iterer sur objet non constant
 		iterator		end();
-		const_iterator	begin() const;
+		const_iterator	begin() const;	// permet d'iterer sur objet constant
 		const_iterator	end() const;
 
 };
 
-#include "MutantStack.tpp"
+#include "MutantStack.tpp" // apres la classe pour eviter appel circulaire

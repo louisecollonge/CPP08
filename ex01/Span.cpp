@@ -14,7 +14,7 @@ Span::~Span() {}
 Span &Span::operator=(const Span &other) {
 	if (this != &other) {
 		this->N = other.N;
-		this->_nbs = other._nbs;
+		this->_nbs = other._nbs; // appelle la surcharge d'operateur d'assignation de la classe vecteur
 	}
 	return *this;
 }
@@ -26,12 +26,12 @@ void Span::addNumber(int toAdd)
 {
 	if (_nbs.size() >= N)
 		throw std::out_of_range("Cannot add number: maxed out capacity");
-	_nbs.push_back(toAdd);
+	_nbs.push_back(toAdd); // ajoute un nouvel element a la fin du vecteur
 }
 
 void Span::addRange(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end) 
 {
-	if (_nbs.size() + std::distance(begin, end) > N)
+	if (_nbs.size() + std::distance(begin, end) > N) // distance renvoie le nb d'elements entre begin et end
 		throw std::out_of_range("Cannot add range: maxed out capacity"); // meme si un seul nb depasse la capacite, aucun des nombres ne sera ajoute
 	_nbs.insert(_nbs.end(), begin, end);
 }

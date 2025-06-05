@@ -9,11 +9,11 @@ int main()
 	mstack.push(5);
 	mstack.push(17);
 
-	std::cout << BLUE << mstack.top() << RESET << std::endl;
+	std::cout << BLUE << mstack.top() << RESET << std::endl; // ce qui est au dessus de la pile donc ajoute en dernier (17)
 
-	mstack.pop();
+	mstack.pop(); // retire l'element au dessus de la pile (17)
 
-	std::cout << BLUE << mstack.size() << RESET << std::endl;
+	std::cout << BLUE << mstack.size() << RESET << std::endl; // nb d'elements dans la pile (1)
 
 	mstack.push(3);
 	mstack.push(5);
@@ -31,6 +31,7 @@ int main()
 		++it;
 	}
 	std::stack<int> s(mstack); // appelle le constructeur de copie de std::stack: copie MutantStack en un nouveau stack
+
 
 // Test identique en remplacant MutantStack par list:
 
@@ -63,3 +64,11 @@ int main()
 	}
 	return 0;
 }
+
+/* 
+ * 
+ * Iterer sur un container de .begin() a .end() donne les elements dans l'ordre
+ * du premier ajoute au dernier ajoute.
+ * Donc l'element au sommet de la pile apparaitra en dernier.
+ * 
+ *  */

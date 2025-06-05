@@ -6,7 +6,7 @@
 #include <vector>
 #include <limits>
 
-#define PINK		 "\033[0;35m"
+#define PINK		"\033[0;35m"
 #define BLUE		"\033[34m"
 #define BOLD_RED 	"\033[1;31m"
 #define BOLD    	"\033[1m"
