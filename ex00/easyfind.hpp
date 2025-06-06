@@ -21,8 +21,8 @@ void easyfind(T intContainer, int valueToFind) // trouve 1ere occurrence de valu
 																								// std::find() est une fonction non membre = fonction libre
 	if (it == intContainer.end()) // .end() va juste apres le dernier element du container
 		throw std::invalid_argument("Value not found.");
-	
-	std::cout << BLUE << valueToFind << " was found at the position "<< *it << RESET << std::endl;
+	unsigned int position = std::distance(intContainer.begin(), it);
+	std::cout << BLUE << valueToFind << " was found at the position "<< position << RESET << std::endl;
 }
 
 
